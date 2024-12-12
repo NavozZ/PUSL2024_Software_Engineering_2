@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cinema Halls</title>
-  <link rel="stylesheet" href="CSS/Location.css" >
+  <link rel="stylesheet" href="css/Location.css" >
+
 </head>
 <body>
 

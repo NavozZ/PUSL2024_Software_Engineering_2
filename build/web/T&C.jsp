@@ -8,10 +8,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <title>Terms</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="stylesheet" href="CSS/Terms.css">
-        
-        
+        <link rel="stylesheet" href="css/Terms.css">
+
     </head>
     <body>
    

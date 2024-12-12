@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/Home.css">
+    <link rel="stylesheet" href="css/Home.css">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
 
     <nav>
         <div class="logo">
-          <img src="SRC/logo.png" alt="logo" />
+          <img src="src/logo.png" alt="logo" />
           <h1>FUTURE CINEMAS</h1>
         </div>
         <ul>
@@ -72,10 +72,10 @@
             <img src="SRC/Venom HD.jpg" class="d-block w-100" alt="">
           </div>
           <div class="carousel-item">
-            <img src="SRC/joker2.jpg" class="d-block w-100" alt="">
+            <img src="src/joker2.jpg" class="d-block w-100" alt="">
           </div>
           <div class="carousel-item">
-            <img src="SRC/moana.jpg" class="d-block w-100" alt="">
+            <img src="src/moana.jpg" class="d-block w-100" alt="">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -178,7 +178,7 @@
           <!-- Poster 1 -->
           <div class="coming-soon-poster">
             <a href="avatar2.html">
-              <img src="SRC/galgadot.jpg" alt="Avatar 2">
+              <img src="src/galgadot.jpg" alt="Avatar 2">
               
             </a>
             <div class="poster-title">Avatar 2</div>
@@ -187,7 +187,7 @@
           <!-- Poster 2 -->
           <div class="coming-soon-poster">
             <a href="dune-part2.html">
-              <img src="SRC/galgadot.jpg" alt="Dune Part 2">
+              <img src="src/galgadot.jpg" alt="Dune Part 2">
             </a>
             <div class="poster-title">Dune Part 2</div>
           </div>
@@ -195,7 +195,7 @@
           <!-- Poster 3 -->
           <div class="coming-soon-poster">
             <a href="spiderman.html">
-              <img src="SRC/galgadot.jpg" alt="Spider-Man: Beyond the Spider-Verse">
+              <img src="src/galgadot.jpg" alt="Spider-Man: Beyond the Spider-Verse">
             </a>
             <div class="poster-title">Spider-Man: Beyond the Spider-Verse</div>
           </div>
@@ -203,7 +203,7 @@
           <!-- Poster 4 -->
           <div class="coming-soon-poster">
             <a href="oppenheimer.html">
-              <img src="SRC/galgadot.jpg" alt="Oppenheimer">
+              <img src="src/galgadot.jpg" alt="Oppenheimer">
             </a>
             <div class="poster-title">Oppenheimer</div>
           </div>
@@ -211,7 +211,7 @@
           <!-- Poster 5 -->
           <div class="coming-soon-poster">
             <a href="spiderman.html">
-              <img src="SRC/galgadot.jpg" alt="Spider-Man: Beyond the Spider-Verse">
+              <img src="src/galgadot.jpg" alt="Spider-Man: Beyond the Spider-Verse">
             </a>
             <div class="poster-title">Spider-Man: Beyond the Spider-Verse</div>
           </div>
@@ -219,7 +219,7 @@
           <!-- Poster 6 -->
           <div class="coming-soon-poster">
             <a href="spiderman.html">
-              <img src="SRC/galgadot.jpg" alt="Spider-Man: Beyond the Spider-Verse">
+              <img src="src/galgadot.jpg" alt="Spider-Man: Beyond the Spider-Verse">
             </a>
             <div class="poster-title">Spider-Man: Beyond the Spider-Verse</div>
           </div>
@@ -227,7 +227,7 @@
           <!-- Poster 7 -->
           <div class="coming-soon-poster">
             <a href="moana2.html">
-              <img src="SRC/galgadot.jpg" alt="Moana 2">
+              <img src="src/galgadot.jpg" alt="Moana 2">
             </a>
             <div class="poster-title">Moana 2</div>
           </div>
@@ -235,7 +235,7 @@
           <!-- Poster 8 -->
           <div class="coming-soon-poster">
             <a href="wild-robot.html">
-              <img src="SRC/galgadot.jpg" alt="The Wild Robot">
+              <img src="src/galgadot.jpg" alt="The Wild Robot">
             </a>
             <div class="poster-title">The Wild Robot</div>
           </div>
@@ -243,7 +243,7 @@
           <!-- Poster 9 -->
           <div class="coming-soon-poster">
             <a href="kraven.html">
-              <img src="SRC/galgadot.jpg" alt="Kraven">
+              <img src="src/galgadot.jpg" alt="Kraven">
             </a>
             <div class="poster-title">Kraven</div>
           </div>
@@ -251,7 +251,7 @@
           <!-- Poster 10 -->
           <div class="coming-soon-poster">
             <a href="black-panther.html">
-              <img src="SRC/galgadot.jpg" alt="Black Panther: Wakanda Forever">
+              <img src="src/galgadot.jpg" alt="Black Panther: Wakanda Forever">
             </a>
             <div class="poster-title">Black Panther: Wakanda Forever</div>
           </div>
@@ -273,7 +273,7 @@
                 <!-- Logo and About Section -->
                 <div class="col">
                     <a href="index.html">
-                        <img src="SRC/logo.png" alt="Logo" class="logo-footer">
+                        <img src="src/logo.png" alt="Logo" class="logo-footer">
                     </a>
                     <div class="footer-about">
                         <p>Future Cinema is your ultimate destination for exploring the latest blockbusters, timeless classics, and hidden gems. 

@@ -8,7 +8,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <title>Movie</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="CSS/Movies.css">
+       <link rel="stylesheet" href="css/Movies.css">
 </head>
 <body>
     
