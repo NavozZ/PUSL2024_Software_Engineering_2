@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+body {
+    background-color: #1E1E1E;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+  }
+
+  /* Nav bar styles */
+
+ 
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+nav {
+    padding: 5px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    position: relative;
+  }
+
+  nav .logo {
+  display: flex;
+  align-items: center;
+}
+
+nav .logo img {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+  }
+  
+  nav .logo h1 {
+    font-size: 20px;
+    background: #e50914;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Bruno Ace", sans-serif;
+  }
+
+  nav .nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center; 
+    flex-grow: 1; 
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav .nav-links li {
+    margin-left: 1.5rem;
+  }
+  
+  nav .nav-links li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 95%;
+    font-weight: 400;
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+  
+  nav .nav-links li a:hover {
+    background-color: #f5f5f5;
+  }
+  
+  nav .buy-tickets-btn,
+nav .login-link {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin-left: 2cm;
+}
+nav .buy-tickets-btn {
+    background-color: #e50914;
+    color: #fff;
+    border: 1px solid #e50914;
+  }
+  nav .buy-tickets-btn:hover {
+    background-color: #030303;
+    color: #E50914;
+  }
+  
+  nav .login-link {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  }
+  nav .login-link:hover {
+    background-color: #E50914;
+    color: #fff;
+  }
+  
+  nav .action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 2cm;
+  }
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  margin-left: 1.5rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 95%;
+  font-weight: 400;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background-color: #E50914;
+}
+
+.hamburger {
+    position: absolute;
+    right: 5%; 
+    display: none;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 1px;
+  background-color: #1f1f1f;
+  display: block;
+  margin: 7px auto;
+  transition: all 0.3s ease-in-out;
+}
+.hamburger-active {
+  transition: all 0.3s ease-in-out;
+  transition-delay: 0.6s;
+  transform: rotate(45deg);
+}
+
+.hamburger-active .line:nth-child(2) {
+  width: 0px;
+}
+
+.hamburger-active .line:nth-child(1),
+.hamburger-active .line:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.hamburger-active .line:nth-child(1) {
+  transform: translateY(12px);
+}
+
+.hamburger-active .line:nth-child(3) {
+  transform: translateY(-5px) rotate(90deg);
+}
+
+.menubar {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 60%;
+  height: 100vh;
+  padding: 20% 0;
+  background: rgba(255, 255, 255);
+  transition: all 0.5s ease-in;
+  z-index: 2;
+}
+.active {
+  left: 0;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.menubar ul {
+  padding: 0;
+  list-style: none;
+}
+.menubar ul li {
+  margin-bottom: 32px;
+}
+
+.menubar ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 95%;
+  font-weight: 400;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.menubar ul li a:hover {
+  background-color: #f5f5f5;
+}
+@media screen and (max-width: 790px) {
+  .hamburger {
+    display: block;
+  }
+  nav ul {
+    display: none;
+  }
+}
+
+
+/* Now showing styles */
+
+
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px auto;
+    max-width: 900px;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Adds spacing between header and posters */
+  }
+  
+  .header-container h1 {
+    color: #f9f7f7;
+    margin: 0; /* Removes default margin around <h1> */
+    font-size: 24px; /* Adjust font size as needed */
+    padding-right: 20px; /* Adds spacing between the header and the first poster */
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap into rows */
+    justify-content: center; /* Centers items in the container */
+    gap: 2px; /* Adds consistent spacing between items */
+  }
+  
+  .poster {
+    width: calc(25% - 20px); /* Each poster takes up 25% of the row width minus spacing */
+    overflow: hidden;
+    border-radius: 5px; /* Optional: Rounds the edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  }
+  
+  .poster img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px; /* Matches the container border-radius */
+  }
+  
+  .poster a {
+    display: block; /* Ensures the link wraps the entire image */
+    text-decoration: none; /* Removes underline from links */
+  }
+  
+  .view-all {
+    margin-top: 20px;
+    align-self: center; /* Center the button within the container-wrapper */
+  }
+  
+  .view-all a {
+    display: inline-block;
+    background-color: #E50914; /* Button background color */
+    color: white; /* Button text color */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Removes underline */
+    font-size: 16px; /* Font size for the button */
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Adds a hover effect */
+  }
+  
+  .view-all a:hover {
+    background-color: #ffffff;
+    color: #E50914; /* Darker blue on hover */
+  }
+
+  .coming-soon-container-wrapper {
+    margin: 20px auto;
+    max-width: 1200px; /* Adjust container width for HD posters */
+  }
+  
+  .header-container {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .header-container h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #f9f7f7;
+  }
+
+
+  /* Coming soon styles */
+
+
+  .coming-soon-container {
+    display: grid; /* Grid layout for easier handling of rows and columns */
+    grid-template-columns: repeat(5, 1fr); /* 5 posters per row */
+    gap: 20px; /* Spacing between the posters */
+  }
+  
+  .coming-soon-poster {
+    overflow: hidden;
+    border-radius: 10px; /* Optional: Rounds the edges of the poster */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds subtle shadow around the poster */
+    text-align: center;
+  }
+  
+  .coming-soon-poster img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* HD wide-screen dimension for posters */
+    border-radius: 10px; /* Matches the border-radius of the container */
+    display: block;
+  }
+  
+  .poster-title {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .view-all-btn-container {
+    text-align: center; /* Centers the button under the poster section */
+    margin-top: 20px;
+  }
+  
+  .view-all-btn {
+    background-color: #E50914;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  .view-all-btn:hover {
+    background-color: #fcfcfc;
+    color: #E50914;
+  }
+  
+  /* footer */
+
+  #footer {
+    background: #f7f7f7;
+    padding: 4rem 2rem;
+    background-image: url('SRC/footerbg.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+#footer .container {
+    max-height: 600px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+#footer .col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.logo-footer {
+    max-width: 150px;
+    margin-bottom: 1rem;
+}
+
+.footer-about p {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+
+.useful-link h2,
+.other-links h2,
+.address h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.use-links li,
+.other-icons li,
+.address ul li {
+    list-style: none;
+    margin-bottom: 0.5rem;
+}
+
+.use-links li a,
+.other-icons li a,
+.address ul li a {
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.use-links li a:hover,
+.other-icons li a:hover,
+.address ul li a:hover {
+    color: #fffefe;
+}
+
+.other-icons li i,
+.address ul li i {
+    color: #ffffff;
+    margin-right: 0.5rem;
+}
+
+
+#copy-right {
+    background: #82074a;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+#copy-right a {
+    color: #fcd462;
+    text-decoration: none;
+}
+
+#copy-right a:hover {
+    color: #fff;
+}
+
+.subscribe {
+    margin-top: 1.5rem;
+}
+
+.subscribe h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.subscribe form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.subscribe input {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.subscribe button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: #82074a;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.subscribe button:hover {
+    background-color: #fcd462;
+    color: #000;
+}
