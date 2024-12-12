@@ -333,7 +333,7 @@
             <p><i class="fas fa-copyright"></i> 2024 Powered By <a href="#">Future Cinema</a></p>
         </div>
     </section>
-      <script src="Home.js"></script>
+      <script src="js/Home.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,73 @@
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    background-color: #1E1E1E;
+    font-family: "Poppins", sans-serif;
+  }
+  
+   .poster-section {
+    flex: 1;
+    margin-right: 2rem;
+  } 
+  
+  .poster-section img {
+    width:250px;
+    height: 400px;
+    padding-top: 30px;
+    padding-left: 20px;
+  }
+  
+  .info-section {
+    flex: 2;
+  }
+  
+  .cinema-info {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .cinema-info i {
+    margin-right: 0.5rem;
+    color: white;
+  }
+  
+  .showtime {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding-left: 50px;
+  }
+  
+  .showtime button {
+    padding: 10px;
+    border: 2px solid white;
+    background-color: gray;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-right: 50px;
+    width: 100px;
+    height: 40px;
+  }
+  
+  .showtime button:hover {
+    background-color: #b3b3b3;
+  }
+  
+  .short-line {
+    border: 0.5px solid #ddd;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .cinema-name {
+    margin-left: 0.5rem;
+  }
+  

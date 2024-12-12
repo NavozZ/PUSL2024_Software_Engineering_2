@@ -23,9 +23,9 @@
       <label>Select a movie:</label>
       <select id="movie">
         <option value="2000" data-title="Venom-Last Dance" data-date="Tue, 26 Nov" data-location="Colombo" data-time="05:00 PM">Venom-Last Dance (RS.2000)</option>
-        <option value="1000" data-title="Wisal Adare Sanchitha and Dinuri" data-date="Wed, 27 Nov" data-location="Makola" data-time="07:30 PM">Suriya Arana (RS.1000)</option>
+        <option value="1000" data-title="Suriya Arana" data-date="Wed, 27 Nov" data-location="Makola" data-time="07:30 PM">Suriya Arana (RS.1000)</option>
         <option value="2500" data-title="Nai Kaida Rose Pan" data-date="Thu, 28 Nov" data-location="NSBM" data-time="03:00 PM">Nai Kaida Rose Pan (RS.2500)</option>
-        <option value="2600" data-title="Mathale Tikiri Katha Wasthuwa" data-date="Fri, 29 Nov" data-location="Mathale" data-time="09:00 PM">Ali Patiyo Oyai Mamai (RS.2600)</option>
+        <option value="2600" data-title="Ali Patiyo Oyai Mamai" data-date="Fri, 29 Nov" data-location="Mathale" data-time="09:00 PM">Ali Patiyo Oyai Mamai (RS.2600)</option>
       </select>
     </div>
 
@@ -73,6 +73,6 @@
 
     <p class="payment">Pay for the Tickets: <button class="pay-btn">Pay</button></p>
 
-    <script src="SBscript.js"></script>
+    <script src="js/SBscript.js"></script>
   </body>
 </html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Cinema Showcase</title>
+    <link rel="stylesheet" href="MovieSelectingStyles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('/Img/1.jpg') no-repeat center center/cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgb(246, 247, 242);
+        }
+
+        .content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .buttons a {
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            color: white;
+            background: #d51a09;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .buttons a:hover {
+            background: #e64a19;
+        }
+
+        .section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card-gallery {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        .card {
+            flex: 0 0 300px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .horizontal-line {
+            width: 50%;
+            height: 2px;
+            background-color: #000;
+            margin: 20px auto;
+        }
+
+        .genres, .cast, .team {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .genres b {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 1.1rem;
+        }
+
+        .buy-button {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .buy-button button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            color: white;
+            background: #d51a09;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .buy-button button:hover {
+            background: #e64a19;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>NOW SHOWING AT FUTURE CINEMAS</h1>
+            <p>2 HR 40 MIN</p>
+            <h2>WICKED</h2>
+            <div class="buttons">
+                <a href="#">BUY TICKETS</a>
+                <a href="#">WATCH TRAILER</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Now Showing Section -->
+    <div class="section">
+        <h4>NOW SHOWING AT</h4>
+        <div class="card-gallery">
+            <div class="card">
+                <img src="Img/a.jpeg" alt="Movie 1">
+            </div>
+            <div class="card">
+                <img src="Img/c.jpeg" alt="Movie 2">
+            </div>
+            <div class="card">
+                <img src="Img/d.jpeg" alt="Movie 3">
+            </div>
+        </div>
+    </div>
+
+    <!-- Story Line Section -->
+    <div class="section story-line">
+        <h2>Story Line</h2>
+        <p>In Kolkata, Rooh Baba enters a spooky estate where he confronts a pair of vindictive ghosts, both asserting to be Manjulika.</p>
+    </div>
+
+    <!-- Genres Section -->
+    <div class="horizontal-line"></div>
+    <div class="genres">
+        <b>Genres:</b>
+        <b>Fairy Tale</b>
+        <b>Fantasy</b>
+        <b>Musical</b>
+        <b>Romance</b>
+    </div>
+    <div class="horizontal-line"></div>
+
+    <!-- Cast Section -->
+    <div class="cast">
+        <h4>CAST</h4>
+        <p><strong>Cynthia Erivo</strong> as Elphaba</p>
+        <p><strong>Ariana Grande</strong> as Glinda</p>
+        <p><strong>Jonathan Bailey</strong> as Fiyero</p>
+    </div>
+
+    <!-- Team Section -->
+    <div class="horizontal-line"></div>
+    <div class="team">
+        <h4>TEAM</h4>
+        <p><strong>Directed by:</strong> Jon M. Chu</p>
+        <p><strong>Produced by:</strong> Jared LeBoff</p>
+        <p><strong>Written by:</strong> Winnie Holzman</p>
+        <p><strong>Music by:</strong> John Powell</p>
+    </div>
+    <div class="horizontal-line"></div>
+
+    <!-- Buy Tickets Button -->
+    <div class="buy-button">
+        <button>BUY TICKETS</button>
+    </div>
+
+    <script src="js/MovieSelectingScripts.js"></script>
+</body>
+
+</html>
