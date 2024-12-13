@@ -1,3 +1,22 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="FC.Model.Movie" %>
+<%@ page import="FC.connection.dbconnection" %>
+<%@ page import="FC.Dao.MovieDao" %>
+
+<%
+    List<Movie> latestMovies = null;
+    try {
+        // Create an instance of MovieDao
+        MovieDao movieDao = new MovieDao();
+
+        // Fetch the latest movies
+        latestMovies = movieDao.getLatestMovies();
+    } catch (Exception e) {
+        e.printStackTrace();
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Future Cinemas</title>
     <link rel="stylesheet" href="css/Home.css">
 </head>
 <body>
@@ -68,15 +87,20 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="src/Venom HD.jpg" class="d-block w-100" alt="">
-          </div>
-          <div class="carousel-item">
-            <img src="src/joker2.jpg" class="d-block w-100" alt="">
-          </div>
-          <div class="carousel-item">
-            <img src="src/moana.jpg" class="d-block w-100" alt="">
-          </div>
+<% 
+        for (int i = 0; i < 3 && i < latestMovies.size(); i++) { 
+            Movie movie = latestMovies.get(i);
+    %>
+        <div class="carousel-item <%= (i == 0) ? "active" : "" %>">
+            <img src="<%= movie.getImageUrl() %>" class="d-block w-100" alt="<%= movie.getTitle() %>">
+            <div class="carousel-caption d-none d-md-block">
+                <h5><%= movie.getTitle() %></h5>
+                <p><%= movie.getDescription() %></p>
+            </div>
+        </div>
+    <% 
+        } 
+    %>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -15,9 +15,12 @@
         <servlet-name>SignUpServlet</servlet-name>
         <servlet-class>FC.servlet.SignUpServlet</servlet-class>
     </servlet>
+    
+    
 
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
     </servlet-mapping>
+    
 </web-app>
