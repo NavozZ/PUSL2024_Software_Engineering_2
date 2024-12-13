@@ -69,7 +69,7 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="SRC/Venom HD.jpg" class="d-block w-100" alt="">
+            <img src="src/Venom HD.jpg" class="d-block w-100" alt="">
           </div>
           <div class="carousel-item">
             <img src="src/joker2.jpg" class="d-block w-100" alt="">
@@ -103,7 +103,7 @@
           <!-- Poster 1 -->
           <div class="poster">
             <a href="moana2.html">
-              <img src="SRC/wicked  (1).jpg" alt="Moana 2">
+              <img src="src/wicked  (1).jpg" alt="Moana 2">
               
             </a>
           </div>
@@ -111,7 +111,7 @@
           <!-- Poster 2 -->
           <div class="poster">
             <a href="hello-love-again.html">
-              <img src="SRC/wicked  (6).jpg" alt="Hello, Love, Again">
+              <img src="src/wicked  (1).jpg" alt="Hello, Love, Again">
               
             </a>
           </div>
@@ -119,7 +119,7 @@
           <!-- Poster 3 -->
           <div class="poster">
             <a href="kraven.html">
-              <img src="SRC/wicked  (1).jpg" alt="Kraven">
+              <img src="src/wicked  (1).jpg" alt="Kraven">
               
             </a>
           </div>
@@ -127,35 +127,35 @@
           <!-- Poster 4 -->
           <div class="poster">
             <a href="wild-robot.html">
-              <img src="SRC/wicked  (1).jpg" alt="The Wild Robot">
+              <img src="src/wicked  (1).jpg" alt="The Wild Robot">
             </a>
           </div>
       
           <!-- Poster 5 -->
           <div class="poster">
             <a href="moana2.html">
-              <img src="SRC/wicked  (1).jpg" alt="Moana 2">
+              <img src="src/wicked  (1).jpg" alt="Moana 2">
             </a>
           </div>
           
           <!-- Poster 6 -->
           <div class="poster">
             <a href="hello-love-again.html">
-              <img src="SRC/wicked  (1).jpg" alt="Hello, Love, Again">
+              <img src="src/wicked  (1).jpg" alt="Hello, Love, Again">
             </a>
           </div>
       
           <!-- Poster 7 -->
           <div class="poster">
             <a href="kraven.html">
-              <img src="SRC/wicked  (1).jpg" alt="Kraven">
+              <img src="src/wicked  (1).jpg" alt="Kraven">
             </a>
           </div>
       
           <!-- Poster 8 -->
           <div class="poster">
             <a href="wild-robot.html">
-              <img src="SRC/wicked  (1).jpg" alt="The Wild Robot">
+              <img src="src/wicked  (1).jpg" alt="The Wild Robot">
             </a>
           </div>
         </div>
