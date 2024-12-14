@@ -124,65 +124,26 @@
       
         <!-- Posters Section -->
         <div class="container">
-          <!-- Poster 1 -->
-          <div class="poster">
-            <a href="moana2.html">
-              <img src="src/wicked  (1).jpg" alt="Moana 2">
-              
-            </a>
-          </div>
-          
-          <!-- Poster 2 -->
-          <div class="poster">
-            <a href="hello-love-again.html">
-              <img src="src/wicked  (1).jpg" alt="Hello, Love, Again">
-              
-            </a>
-          </div>
-      
-          <!-- Poster 3 -->
-          <div class="poster">
-            <a href="kraven.html">
-              <img src="src/wicked  (1).jpg" alt="Kraven">
-              
-            </a>
-          </div>
-      
-          <!-- Poster 4 -->
-          <div class="poster">
-            <a href="wild-robot.html">
-              <img src="src/wicked  (1).jpg" alt="The Wild Robot">
-            </a>
-          </div>
-      
-          <!-- Poster 5 -->
-          <div class="poster">
-            <a href="moana2.html">
-              <img src="src/wicked  (1).jpg" alt="Moana 2">
-            </a>
-          </div>
-          
-          <!-- Poster 6 -->
-          <div class="poster">
-            <a href="hello-love-again.html">
-              <img src="src/wicked  (1).jpg" alt="Hello, Love, Again">
-            </a>
-          </div>
-      
-          <!-- Poster 7 -->
-          <div class="poster">
-            <a href="kraven.html">
-              <img src="src/wicked  (1).jpg" alt="Kraven">
-            </a>
-          </div>
-      
-          <!-- Poster 8 -->
-          <div class="poster">
-            <a href="wild-robot.html">
-              <img src="src/wicked  (1).jpg" alt="The Wild Robot">
-            </a>
-          </div>
-        </div>
+    <% 
+        if (latestMovies != null && !latestMovies.isEmpty()) {
+            for (Movie movie : latestMovies) { 
+    %>
+                <div class="poster">
+                    <a href="movieDetails.jsp?id=<%= movie.getId() %>">
+                        <img src="<%= movie.getImageUrl() %>" alt="<%= movie.getTitle() %>">
+                    </a>
+                    <div class="poster-title"><%= movie.getTitle() %></div>
+                </div>
+    <% 
+            }
+        } else {
+    %>
+        <p>No movies available at the moment.</p>
+    <% 
+        }
+    %>
+</div>
+
       
         <!-- View All Button -->
         <div class="view-all">

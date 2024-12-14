@@ -7,6 +7,7 @@ package FC.Model;
 import java.util.List;
 
 public class Movie {
+    private int id;
     private String title;
     private String genre;
     private String language;
@@ -24,6 +25,25 @@ public class Movie {
     private String musicBy;
 
     // Constructor
+
+    public Movie(int id, String title, String genre, String language, String description, List<Cast> cast, String trailerLink, String imageUrl, int duration, double rating, String director, String producer, String writer, String musicBy) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.language = language;
+        this.description = description;
+        this.cast = cast;
+        this.trailerLink = trailerLink;
+        this.imageUrl = imageUrl;
+        this.duration = duration;
+        this.rating = rating;
+        this.director = director;
+        this.producer = producer;
+        this.writer = writer;
+        this.musicBy = musicBy;
+    }
+    
+    
     public Movie(String title, String genre, String language, String description, List<Cast> cast, String trailerLink, String imageUrl, int duration, double rating, String director, String producer, String writer, String musicBy) {
         this.title = title;
         this.genre = genre;
@@ -56,6 +76,16 @@ public class Movie {
     }
 
     // Getters and Setters
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
     public String getTitle() {
         return title;
     }
