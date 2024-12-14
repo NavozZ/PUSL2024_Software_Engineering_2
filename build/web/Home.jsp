@@ -1,8 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="FC.Model.Movie" %>
-<%@ page import="FC.connection.dbconnection" %>
 <%@ page import="FC.Dao.MovieDao" %>
+<%@ page import="FC.Model.ComingsoonMovies" %>
+<%@ page import="FC.Dao.ComingsoonMoviesDao" %>
 
 <%
     List<Movie> latestMovies = null;
@@ -29,7 +30,7 @@
 </head>
 <body>
 
-    <!-- Nav bar -->
+    <!-- Navigation bar -->
 
     <nav>
         <div class="logo">
@@ -41,14 +42,14 @@
             <a href="#">Home</a>
           </li>
           <li>
-            <a href="#">Movies</a>
+            <a href="Movies.jsp">Movies</a>
           </li>
           <li>
-            <a href="#">Locations</a>
+            <a href="Location.jsp">Locations</a>
           </li>     
         </ul>
-        <a href="#" class="buy-tickets-btn">Buy Tickets</a>
-        <a href="#" class="login-link">LOGIN</a>
+        <a href="Movies.jsp" class="buy-tickets-btn">Buy Tickets</a>
+        <a href="Login.jsp" class="login-link">LOGIN</a>
         
         <div class="hamburger">
           <span class="line"></span>
@@ -62,59 +63,74 @@
             <a class="Orange" href="#">Home</a>
           </li>
           <li>
-            <a href="#">Movies</a>
+            <a href="Movies.jsp">Movies</a>
           </li>
           <li>
-            <a href="#">Location</a>
+            <a href="Location.jsp">Location</a>
           </li>
           <li>
-            <a href="#">LOGIN</a>
+            <a href="Login.jsp">LOGIN</a>
           </li>
         </ul>
       </div>
-      <div>
-        
-      </div>
-
 
       <!-- carousel -->
 
+    <div id="carouselExampleIndicators" class="carousel slide position-relative">
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
 
-    <div id="carouselExampleIndicators" class="carousel slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-<% 
-        for (int i = 0; i < 3 && i < latestMovies.size(); i++) { 
-            Movie movie = latestMovies.get(i);
-    %>
+    <!-- Carousel Inner -->
+    <div class="carousel-inner">
+        <% 
+            if (latestMovies != null) {
+                for (int i = 0; i < 3 && i < latestMovies.size(); i++) { 
+                    Movie movie = latestMovies.get(i);
+        %>
         <div class="carousel-item <%= (i == 0) ? "active" : "" %>">
             <img src="<%= movie.getImageUrl() %>" class="d-block w-100" alt="<%= movie.getTitle() %>">
-            <div class="carousel-caption d-none d-md-block">
-                <h5><%= movie.getTitle() %></h5>
-                <p><%= movie.getDescription() %></p>
+            
+            <!-- Left Side Film Details -->
+            <div class="carousel-caption d-none d-md-block text-start">
+                <h2 class="film-name"><%= movie.getTitle() %></h2>
+                <p class="film-details">
+                    <span class="film-time"><%= movie.getDuration() %></span> | 
+                    <span class="film-rating">IMDb: <%= movie.getRating() %></span>
+                </p>
             </div>
         </div>
-    <% 
-        } 
-    %>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+        <% 
+                } 
+            } else {
+        %>
+            <p>No movies available at the moment.</p>
+        <% 
+            }
+        %>
+    </div>
 
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+
+    <!-- Custom Buttons -->
+    <div class="custom-buttons position-absolute bottom-0 end-0 m-3">
+        <button class="btn btn-primary me-2">Buy Ticket</button>
+        <button class="btn btn-secondary">Watch Trailer</button>
+    </div>
+</div>
 
       <!-- Now showing section -->
-
 
       <div class="container-wrapper">
         <!-- Header Section -->
@@ -124,133 +140,64 @@
       
         <!-- Posters Section -->
         <div class="container">
-    <% 
-        if (latestMovies != null && !latestMovies.isEmpty()) {
-            for (Movie movie : latestMovies) { 
-    %>
+            <% 
+                if (latestMovies != null && !latestMovies.isEmpty()) {
+                    for (Movie movie : latestMovies) { 
+            %>
                 <div class="poster">
                     <a href="movieDetails.jsp?id=<%= movie.getId() %>">
                         <img src="<%= movie.getImageUrl() %>" alt="<%= movie.getTitle() %>">
                     </a>
                     <div class="poster-title"><%= movie.getTitle() %></div>
                 </div>
-    <% 
-            }
-        } else {
-    %>
-        <p>No movies available at the moment.</p>
-    <% 
-        }
-    %>
-</div>
-
+            <% 
+                    }
+                } else {
+            %>
+                <p>No movies available at the moment.</p>
+            <% 
+                }
+            %>
+        </div>
       
         <!-- View All Button -->
         <div class="view-all">
-          <a href="view-all.html">View All</a>
+          <a href="Movies.jsp">View All</a>
         </div>
       </div>
       
-      <!-- Coming Soon section -->
-
-      <div class="coming-soon-container-wrapper">
+      <!-- Coming Soon Section -->
+    <div class="coming-soon-container-wrapper">
         <!-- Coming Soon Header -->
         <div class="header-container">
-          <h1>COMING SOON</h1>
+            <h1>COMING SOON</h1>
         </div>
       
         <div class="coming-soon-container">
-          <!-- Poster 1 -->
-          <div class="coming-soon-poster">
-            <a href="avatar2.html">
-              <img src="src/galgadot.jpg" alt="Avatar 2">
-              
-            </a>
-            <div class="poster-title">Avatar 2</div>
-          </div>
-      
-          <!-- Poster 2 -->
-          <div class="coming-soon-poster">
-            <a href="dune-part2.html">
-              <img src="src/galgadot.jpg" alt="Dune Part 2">
-            </a>
-            <div class="poster-title">Dune Part 2</div>
-          </div>
-      
-          <!-- Poster 3 -->
-          <div class="coming-soon-poster">
-            <a href="spiderman.html">
-              <img src="src/galgadot.jpg" alt="Spider-Man: Beyond the Spider-Verse">
-            </a>
-            <div class="poster-title">Spider-Man: Beyond the Spider-Verse</div>
-          </div>
-      
-          <!-- Poster 4 -->
-          <div class="coming-soon-poster">
-            <a href="oppenheimer.html">
-              <img src="src/galgadot.jpg" alt="Oppenheimer">
-            </a>
-            <div class="poster-title">Oppenheimer</div>
-          </div>
-      
-          <!-- Poster 5 -->
-          <div class="coming-soon-poster">
-            <a href="spiderman.html">
-              <img src="src/galgadot.jpg" alt="Spider-Man: Beyond the Spider-Verse">
-            </a>
-            <div class="poster-title">Spider-Man: Beyond the Spider-Verse</div>
-          </div>
-      
-          <!-- Poster 6 -->
-          <div class="coming-soon-poster">
-            <a href="spiderman.html">
-              <img src="src/galgadot.jpg" alt="Spider-Man: Beyond the Spider-Verse">
-            </a>
-            <div class="poster-title">Spider-Man: Beyond the Spider-Verse</div>
-          </div>
-      
-          <!-- Poster 7 -->
-          <div class="coming-soon-poster">
-            <a href="moana2.html">
-              <img src="src/galgadot.jpg" alt="Moana 2">
-            </a>
-            <div class="poster-title">Moana 2</div>
-          </div>
-      
-          <!-- Poster 8 -->
-          <div class="coming-soon-poster">
-            <a href="wild-robot.html">
-              <img src="src/galgadot.jpg" alt="The Wild Robot">
-            </a>
-            <div class="poster-title">The Wild Robot</div>
-          </div>
-      
-          <!-- Poster 9 -->
-          <div class="coming-soon-poster">
-            <a href="kraven.html">
-              <img src="src/galgadot.jpg" alt="Kraven">
-            </a>
-            <div class="poster-title">Kraven</div>
-          </div>
-      
-          <!-- Poster 10 -->
-          <div class="coming-soon-poster">
-            <a href="black-panther.html">
-              <img src="src/galgadot.jpg" alt="Black Panther: Wakanda Forever">
-            </a>
-            <div class="poster-title">Black Panther: Wakanda Forever</div>
-          </div>
+            <% 
+                List<ComingsoonMovies> comingSoonMovies = (List<ComingsoonMovies>) request.getAttribute("comingSoonMovies");
+                if (comingSoonMovies != null) {
+                    for (ComingsoonMovies movie : comingSoonMovies) {
+            %>
+            <!-- Poster -->
+            <div class="coming-soon-poster">
+                <a href="<%= movie.getDetailsPageUrl() %>">
+                    <img src="<%= movie.getImageUrl() %>" alt="<%= movie.getTitle() %>">
+                </a>
+                <div class="poster-title"><%= movie.getTitle() %></div>
+            </div>
+            <% 
+                    }
+                } else {
+            %>
+                <p>No coming soon movies available.</p>
+            <% 
+                }
+            %>
         </div>
-      
-        <!-- View All Button -->
-        <div class="view-all-btn-container">
-          <a href="view-all.html" class="view-all-btn">VIEW ALL</a>
-        </div>
-      </div>
-
+    </div>
 
       <!-- Footer -->
-
 
       <footer id="footer">
         <div class="container">
@@ -313,12 +260,6 @@
             </div>
         </div>
     </footer>
-    <section id="copy-right">
-        <div class="copy-right-sec">
-            <p><i class="fas fa-copyright"></i> 2024 Powered By <a href="#">Future Cinema</a></p>
-        </div>
-    </section>
-      <script src="js/Home.js"></script>
 
 </body>
 </html>
