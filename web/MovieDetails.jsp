@@ -156,19 +156,27 @@
 
     <!-- Now Showing Section -->
     <div class="section">
-        <h4>NOW SHOWING AT</h4>
-        <div class="card-gallery">
+    <h4>NOW SHOWING AT</h4>
+    <div class="card-gallery">
+        <% 
+            List<Location> locations = (List<Location>) request.getAttribute("locations");
+            if (locations != null && !locations.isEmpty()) { 
+                for (Location location : locations) {
+        %>
             <div class="card">
-                <img src="Img/a.jpeg" alt="Movie 1">
+                <img src="<%= location.getImageUrl() %>" alt="<%= location.getName() %>">
+                <p><%= location.getName() %></p>
+                <p><%= location.getAddress() %></p>
             </div>
-            <div class="card">
-                <img src="Img/c.jpeg" alt="Movie 2">
-            </div>
-            <div class="card">
-                <img src="Img/d.jpeg" alt="Movie 3">
-            </div>
-        </div>
+        <% 
+                }
+            } else { 
+        %>
+            <p>No locations available for this movie.</p>
+        <% } %>
     </div>
+</div>
+
 
     <!-- Story Line Section -->
     <div class="section story-line">
