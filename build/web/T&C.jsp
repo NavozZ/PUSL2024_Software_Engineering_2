@@ -13,56 +13,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
     </head>
     <body>
-   
-        
-        <div class="navbar-section">
-  <nav>
-    <div class="logo">
-      <img src="/src/logo.png" alt="logo" />
-      <h1>Future Cinemas</h1>
-    </div>
-    <ul>
-      <li>
-        <a href="#">Home</a>
-      </li>
-      <li>
-        <a href="#">Movies</a>
-      </li>
-      <li>
-        <a href="#">Locations</a>
-      </li>     
-    </ul>
-    <a href="#" class="buy-tickets-btn">Buy Tickets</a>
-    <a href="#" class="login-link">LOGIN</a>
-    
-    <div class="hamburger">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
-    </div>
-  </nav>
-    <div class="menubar">
-    <ul>
-      <li>
-        <a class="Orange" href="#">Home</a>
-      </li>
-      <li>
-        <a href="#">Movies</a>
-      </li>
-      <li>
-        <a href="#">Location</a>
-      </li>
-      <li>
-        <a href="#">LOGIN</a>
-      </li>
-    </ul>
-    </div>
-  <script src="navbar.js"></script>
-        </div>
-        
-        
-        
-        
+        <%@ include file="NavBar.jsp" %>
+  
         <div class="conditions-section">
         
            <div class="pharagraphs-1 text">

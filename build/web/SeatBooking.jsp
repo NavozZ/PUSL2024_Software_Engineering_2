@@ -8,6 +8,7 @@
     <title>Seat Booking Page</title>
   </head>
   <body>
+      <%@ include file="NavBar.jsp" %>
     <header>
       <h4 id="page-title">SEAT SELECT</h4>
       <h1 id="film-title">Venom</h1>

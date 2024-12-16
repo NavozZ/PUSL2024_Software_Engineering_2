@@ -9,6 +9,7 @@
 
 </head>
 <body>
+    <%@ include file="NavBar.jsp" %>
   
   <main class="contact-container">
     <h1>Contact Us</h1>

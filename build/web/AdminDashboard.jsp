@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/AdminDashboard.css">
     </head>
     <body>
+        <%@ include file="NavBar.jsp" %>
         <div class="dashboard">
         <nav class="nav">
             <h1>Admin Dashboard</h1>

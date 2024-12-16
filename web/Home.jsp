@@ -2,8 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="FC.Model.Movie" %>
 <%@ page import="FC.Dao.MovieDao" %>
-<%@ page import="FC.Model.ComingsoonMovies" %>
-<%@ page import="FC.Dao.ComingsoonMoviesDao" %>
+
 
 <%
     List<Movie> latestMovies = null;
@@ -14,6 +13,29 @@
         // Fetch the latest movies
         latestMovies = movieDao.getLatestMovies();
     } catch (Exception e) {
+        e.printStackTrace();
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+    }
+    List<Movie> ComingsoonMovies = null;
+    try {
+        // Create an instance of MovieDao
+        MovieDao movieDao = new MovieDao();
+
+        // Fetch the latest movies
+        ComingsoonMovies = movieDao.getComingsoonMovies(); 
+        } catch (Exception e) {
+        e.printStackTrace();
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+    }
+     List<Movie> CarouselMovies = null;
+    try {
+        // Create an instance of MovieDao
+        MovieDao movieDao = new MovieDao();
+
+        // Fetch the latest movies
+        CarouselMovies = movieDao.getCarouselImage();
+        
+        } catch (Exception e) {
         e.printStackTrace();
         out.println("<p>Error: " + e.getMessage() + "</p>");
     }
@@ -29,50 +51,7 @@
     <link rel="stylesheet" href="css/Home.css">
 </head>
 <body>
-
-    <!-- Navigation bar -->
-
-    <nav>
-        <div class="logo">
-          <img src="src/logo.png" alt="logo" />
-          <h1>FUTURE CINEMAS</h1>
-        </div>
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="Movies.jsp">Movies</a>
-          </li>
-          <li>
-            <a href="Location.jsp">Locations</a>
-          </li>     
-        </ul>
-        <a href="Movies.jsp" class="buy-tickets-btn">Buy Tickets</a>
-        <a href="Login.jsp" class="login-link">LOGIN</a>
-        
-        <div class="hamburger">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </div>
-      </nav>
-      <div class="menubar">
-        <ul>
-          <li>
-            <a class="Orange" href="#">Home</a>
-          </li>
-          <li>
-            <a href="Movies.jsp">Movies</a>
-          </li>
-          <li>
-            <a href="Location.jsp">Location</a>
-          </li>
-          <li>
-            <a href="Login.jsp">LOGIN</a>
-          </li>
-        </ul>
-      </div>
+    <%@ include file="NavBar.jsp" %>
 
       <!-- carousel -->
 
@@ -84,51 +63,52 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
 
-    <!-- Carousel Inner -->
-    <div class="carousel-inner">
-        <% 
-            if (latestMovies != null) {
-                for (int i = 0; i < 3 && i < latestMovies.size(); i++) { 
-                    Movie movie = latestMovies.get(i);
-        %>
-        <div class="carousel-item <%= (i == 0) ? "active" : "" %>">
-            <img src="<%= movie.getImageUrl() %>" class="d-block w-100" alt="<%= movie.getTitle() %>">
-            
-            <!-- Left Side Film Details -->
-            <div class="carousel-caption d-none d-md-block text-start">
-                <h2 class="film-name"><%= movie.getTitle() %></h2>
-                <p class="film-details">
-                    <span class="film-time"><%= movie.getDuration() %></span> | 
-                    <span class="film-rating">IMDb: <%= movie.getRating() %></span>
-                </p>
-            </div>
+   <!-- Carousel Inner -->
+<div class="carousel-inner">
+    <% 
+        if (CarouselMovies != null && !CarouselMovies.isEmpty()) {
+            for (int i = 0; i < Math.min(3, CarouselMovies.size()); i++) { 
+                Movie cmovie = CarouselMovies.get(i);
+    %>
+    <div class="carousel-item <%= (i == 0) ? "active" : "" %>">
+        <img src="<%= cmovie.getCarouselImg() %>" class="d-block w-100" alt="<%= cmovie.getTitle() %>">
+        
+        <!-- Left Side Film Details -->
+        <div class="carousel-caption d-none d-md-block text-start">
+            <h2 class="film-name"><%= cmovie.getTitle() %></h2>
+            <p class="film-details">
+                <span class="film-time"><%= cmovie.getDuration() %> min</span> | 
+                <span class="film-rating">IMDb: <%= cmovie.getRating() %></span>
+            </p>
         </div>
-        <% 
-                } 
-            } else {
-        %>
-            <p>No movies available at the moment.</p>
-        <% 
-            }
-        %>
     </div>
-
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-
-    <!-- Custom Buttons -->
-    <div class="custom-buttons position-absolute bottom-0 end-0 m-3">
-        <button class="btn btn-primary me-2">Buy Ticket</button>
-        <button class="btn btn-secondary">Watch Trailer</button>
-    </div>
+    <% 
+            } 
+        } else {
+    %>
+        <p>No movies available at the moment.</p>
+    <% 
+        }
+    %>
 </div>
+
+<!-- Carousel Controls -->
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+</button>
+
+<!-- Custom Buttons -->
+<div class="custom-buttons position-absolute bottom-0 end-0 m-3">
+    <button class="btn btn-primary me-2">Buy Ticket</button>
+    <button class="btn btn-secondary">Watch Trailer</button>
+</div>
+
+
 
       <!-- Now showing section -->
 
@@ -145,10 +125,10 @@
                     for (Movie movie : latestMovies) { 
             %>
                 <div class="poster">
-                    <a href="movieDetails.jsp?id=<%= movie.getId() %>">
+                    <a href="MovieDetails.jsp?id=<%= movie.getId() %>">
                         <img src="<%= movie.getImageUrl() %>" alt="<%= movie.getTitle() %>">
                     </a>
-                    <div class="poster-title"><%= movie.getTitle() %></div>
+                    
                 </div>
             <% 
                     }
@@ -175,16 +155,15 @@
       
         <div class="coming-soon-container">
             <% 
-                List<ComingsoonMovies> comingSoonMovies = (List<ComingsoonMovies>) request.getAttribute("comingSoonMovies");
-                if (comingSoonMovies != null) {
-                    for (ComingsoonMovies movie : comingSoonMovies) {
+                if (ComingsoonMovies != null) {
+                    for (Movie csmovie : ComingsoonMovies) {
             %>
             <!-- Poster -->
             <div class="coming-soon-poster">
-                <a href="<%= movie.getDetailsPageUrl() %>">
-                    <img src="<%= movie.getImageUrl() %>" alt="<%= movie.getTitle() %>">
+                <a href="">
+                    <img src="<%= csmovie.getImageUrl() %>" alt="">
                 </a>
-                <div class="poster-title"><%= movie.getTitle() %></div>
+                
             </div>
             <% 
                     }
@@ -197,69 +176,7 @@
         </div>
     </div>
 
-      <!-- Footer -->
-
-      <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <!-- Logo and About Section -->
-                <div class="col">
-                    <a href="index.html">
-                        <img src="src/logo.png" alt="Logo" class="logo-footer">
-                    </a>
-                    <div class="footer-about">
-                        <p>Future Cinema is your ultimate destination for exploring the latest blockbusters, timeless classics, and hidden gems. 
-                            Experience the magic of cinema with personalized recommendations, detailed reviews, and exclusive trailers. </p>
-                    </div>
-                </div>
-                <!-- Useful Links Section -->
-                <div class="col">
-                    <div class="useful-link">
-                        <h2>Useful Links</h2>
-                        <div class="use-links">
-                            <ul>
-                                <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
-                                <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
-                                <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Movies</a></li>
-                                <li><a href="contact.html"><i class="fas fa-angle-right"></i> Locations</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    <div class="other-links">
-                        <span><br></span>
-                        <div class="other-icons">
-                            <ul>
-                                <li><a href="#"><i class="fas fa-angle-right"></i> Contact Us</a></li>
-                                <li><a href="#"><i class="fas fa-angle-right"></i> Disclaimer</a></li>
-                                <li><a href="#"><i class="fas fa-angle-right"></i>Terms And Conditions</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    <div class="address">
-                        <h2>Address</h2>
-                        <ul>
-                            <li><i class="fas fa-map-marker-alt"></i> xxxx xxxxx, xxxxx xxxx, xxx</li>
-                            <li><a href="#"><i class="fas fa-phone"></i> +94 909045001</a></li>
-                            <li><a href="#"><i class="fas fa-envelope"></i> futurecinema@hotmail.com</a></li>
-                        </ul>
-                    </div>
-                    <div class="subscribe">
-                        <h2>Subscribe to Our Newsletter</h2>
-                        <form action="#" method="POST">
-                            <input type="email" placeholder="Enter your email" required>
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+      
 
 </body>
 </html>

@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="css/Signup.css">
     </head>
     <body>
+        <%@ include file="NavBar.jsp" %>
         <div class="container">
             <div class="heading">Enter your details below to register</div>
 

@@ -1,3 +1,42 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="FC.Model.*" %>
+<%@ page import="FC.Dao.*" %>
+<%
+    List<Location> getAllLocations = null;
+    try {
+        LocationDao locationDao = new LocationDao();
+        getAllLocations = locationDao.selectAllLocations();
+    } catch (Exception e) {
+        e.printStackTrace();
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+    }
+%>
+<%
+    int movieId = 0; // Default value
+    try {
+        String idParam = request.getParameter("id");
+        if (idParam != null) {
+            movieId = Integer.parseInt(idParam);
+        } else {
+            // Handle the case where "id" is not present
+            response.sendRedirect("Home.jsp");
+            return;
+        }
+    } catch (NumberFormatException e) {
+        // Handle the case where "id" is not a valid integer
+        response.sendRedirect("Home.jsp");
+    }
+    Movie selectedMovie = null;
+    try {
+        MovieDao movieDao = new MovieDao();
+        selectedMovie = movieDao.selectMovieById(movieId);
+    } catch (Exception e) {
+        e.printStackTrace();
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+    }
+  %>  
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +44,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Future Cinema Showcase</title>
-    <link rel="stylesheet" href="MovieSelectingStyles.css">
+    <link rel="stylesheet" href="MovieDetailsStyles.css">
     <style>
         body {
             margin: 0;
@@ -18,8 +57,10 @@
             position: relative;
             width: 100%;
             height: 100vh;
-            background: url('/Img/1.jpg') no-repeat center center/cover;
-        }
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            }
 
         .overlay {
             position: absolute;
@@ -140,13 +181,14 @@
 </head>
 
 <body>
+    <%@ include file="NavBar.jsp" %>
     <!-- Hero Section -->
-    <div class="hero">
+    <div class="hero" style="background: url('src/tom_hardy_michelle_williams_woody_harrelson_riz_ahmed_reid_scott_hd_venom-1280x720.jpg') no-repeat center center/cover; height: 100vh; width: 100%;">
         <div class="overlay"></div>
         <div class="content">
             <h1>NOW SHOWING AT FUTURE CINEMAS</h1>
             <p>2 HR 40 MIN</p>
-            <h2>WICKED</h2>
+            <h2><%= selectedMovie.getTitle() %></h2>
             <div class="buttons">
                 <a href="#">BUY TICKETS</a>
                 <a href="#">WATCH TRAILER</a>
@@ -159,9 +201,8 @@
     <h4>NOW SHOWING AT</h4>
     <div class="card-gallery">
         <% 
-            List<Location> locations = (List<Location>) request.getAttribute("locations");
-            if (locations != null && !locations.isEmpty()) { 
-                for (Location location : locations) {
+            if (getAllLocations != null && !getAllLocations.isEmpty()) { 
+                for (Location location : getAllLocations) {
         %>
             <div class="card">
                 <img src="<%= location.getImageUrl() %>" alt="<%= location.getName() %>">
@@ -181,17 +222,14 @@
     <!-- Story Line Section -->
     <div class="section story-line">
         <h2>Story Line</h2>
-        <p>In Kolkata, Rooh Baba enters a spooky estate where he confronts a pair of vindictive ghosts, both asserting to be Manjulika.</p>
+        <p><%= selectedMovie.getDescription() %></p>
     </div>
 
     <!-- Genres Section -->
     <div class="horizontal-line"></div>
     <div class="genres">
-        <b>Genres:</b>
-        <b>Fairy Tale</b>
-        <b>Fantasy</b>
-        <b>Musical</b>
-        <b>Romance</b>
+        <b>Genres:<%= selectedMovie.getGenre() %></b>
+
     </div>
     <div class="horizontal-line"></div>
 
@@ -207,17 +245,19 @@
     <div class="horizontal-line"></div>
     <div class="team">
         <h4>TEAM</h4>
-        <p><strong>Directed by:</strong> Jon M. Chu</p>
-        <p><strong>Produced by:</strong> Jared LeBoff</p>
-        <p><strong>Written by:</strong> Winnie Holzman</p>
-        <p><strong>Music by:</strong> John Powell</p>
+        <p><strong>Directed by:<%= selectedMovie.getDirector()%></strong></p>
+        <p><strong>Produced by:<%= selectedMovie.getProducer()%></strong></p>
+        <p><strong>Written by:<%= selectedMovie.getWriter()%></strong></p>
     </div>
     <div class="horizontal-line"></div>
 
     <!-- Buy Tickets Button -->
     <div class="buy-button">
+    <a href="ShowTime.jsp?id=<%= selectedMovie.getId() %>" target="_blank">
         <button>BUY TICKETS</button>
-    </div>
+    </a>
+</div>
+
 
     <script src="js/MovieSelectingScripts.js"></script>
 </body>

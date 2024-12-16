@@ -13,7 +13,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         
         
     </head>
+   
     <body>
+        <%@ include file="NavBar.jsp" %>
         <div class="container">
         <!-- Login Title -->
         <h1 class="login-title">Enter your login details</h1>

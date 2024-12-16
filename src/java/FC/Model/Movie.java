@@ -18,15 +18,17 @@ public class Movie {
     private int duration;
     private double rating;
     
-    // New fields for the team
+
+    // New fields for the team and additional images
     private String director;
     private String producer;
     private String writer;
     private String musicBy;
+    private Enum status;
+    private String carouselImg; // For carousel_img
+    private String image2;
 
-    // Constructor
-
-    public Movie(int id, String title, String genre, String language, String description, List<Cast> cast, String trailerLink, String imageUrl, int duration, double rating, String director, String producer, String writer, String musicBy) {
+    public Movie(int id, String title, String genre, String language, String description, List<Cast> cast, String trailerLink, String imageUrl, int duration, double rating, String director, String producer, String writer, String musicBy, Enum status, String carouselImg, String image2) {
         this.id = id;
         this.title = title;
         this.genre = genre;
@@ -41,10 +43,13 @@ public class Movie {
         this.producer = producer;
         this.writer = writer;
         this.musicBy = musicBy;
+        this.status = status;
+        this.carouselImg = carouselImg;
+        this.image2 = image2;
     }
-    
-    
-    public Movie(String title, String genre, String language, String description, List<Cast> cast, String trailerLink, String imageUrl, int duration, double rating, String director, String producer, String writer, String musicBy) {
+
+    public Movie(int id, String title, String genre, String language, String description, List<Cast> cast, String trailerLink, String imageUrl, int duration, double rating, String director, String producer, String writer, String musicBy, String carouselImg, String image2) {
+        this.id = id;
         this.title = title;
         this.genre = genre;
         this.language = language;
@@ -58,9 +63,77 @@ public class Movie {
         this.producer = producer;
         this.writer = writer;
         this.musicBy = musicBy;
+        this.carouselImg = carouselImg;
+        this.image2 = image2;
     }
 
-    public Movie(String title, String genre, String language, String description, String trailerLink, String imageUrl, int duration, double rating, String director, String producer, String writer, String musicBy) {
+    
+    
+    // Full Constructor with all fields, including id
+    public Movie(int id, String title, String genre, String language, String description, List<Cast> cast,
+                 String trailerLink, String imageUrl, int duration, double rating, String director, 
+                 String producer, String writer, String musicBy, String carouselImg) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.language = language;
+        this.description = description;
+        this.cast = cast;
+        this.trailerLink = trailerLink;
+        this.imageUrl = imageUrl;
+        this.duration = duration;
+        this.rating = rating;
+        this.director = director;
+        this.producer = producer;
+        this.writer = writer;
+        this.musicBy = musicBy;
+        
+        this.carouselImg = carouselImg;
+    }
+
+    // Constructor without id (useful for new movie entries)
+    public Movie(String title, String genre, String language, String description, List<Cast> cast,
+                 String trailerLink, String imageUrl, int duration, double rating, String director,
+                 String producer, String writer, String musicBy, String carouselImg) {
+        this.title = title;
+        this.genre = genre;
+        this.language = language;
+        this.description = description;
+        this.cast = cast;
+        this.trailerLink = trailerLink;
+        this.imageUrl = imageUrl;
+        this.duration = duration;
+        this.rating = rating;
+        this.director = director;
+        this.producer = producer;
+        this.writer = writer;
+        this.musicBy = musicBy;
+        
+        this.carouselImg = carouselImg;
+    }
+     
+     // Constructor for Manage Comingsoon Movies 
+
+    public Movie(int id, String imageUrl ) {
+        this.id = id;
+        this.imageUrl = imageUrl;
+        
+    }
+    // Constructor for Manage Carousel
+    public Movie(int id,String title,int duration, double rating,String carouselImg){
+        this.id = id;
+        this.title = title;
+        this.rating = rating;
+        this.duration = duration;
+        this.carouselImg = carouselImg;
+        
+    }
+    
+
+    // Simplified constructor for cases without cast and additional images
+    public Movie(String title, String genre, String language, String description, String trailerLink,
+                 String imageUrl, int duration, double rating, String director, String producer,
+                 String writer, String musicBy) {
         this.title = title;
         this.genre = genre;
         this.language = language;
@@ -75,8 +148,27 @@ public class Movie {
         this.musicBy = musicBy;
     }
 
-    // Getters and Setters
+    // Getter and Setter for csImg
 
+    public Enum getStatus() {
+        return status;
+    }
+
+    public void setStatus(Enum status) {
+        this.status = status;
+    }
+    
+
+    // Getter and Setter for carouselImg
+    public String getCarouselImg() {
+        return carouselImg;
+    }
+
+    public void setCarouselImg(String carouselImg) {
+        this.carouselImg = carouselImg;
+    }
+
+    // Getters and Setters for all fields
     public int getId() {
         return id;
     }
@@ -84,8 +176,7 @@ public class Movie {
     public void setId(int id) {
         this.id = id;
     }
-    
-    
+
     public String getTitle() {
         return title;
     }
@@ -190,11 +281,22 @@ public class Movie {
         this.musicBy = musicBy;
     }
 
-    // ToString method
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
+    }
+    
+    
+
+    // toString method for debugging and logging
     @Override
     public String toString() {
         return "Movie{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", genre='" + genre + '\'' +
                 ", language='" + language + '\'' +
                 ", description='" + description + '\'' +
@@ -207,6 +309,8 @@ public class Movie {
                 ", producer='" + producer + '\'' +
                 ", writer='" + writer + '\'' +
                 ", musicBy='" + musicBy + '\'' +
+                
+                ", carouselImg='" + carouselImg + '\'' +
                 '}';
     }
 }

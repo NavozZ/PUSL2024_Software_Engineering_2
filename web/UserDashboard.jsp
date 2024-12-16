@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/UserDashboard.css">
     </head>
     <body>
+        <%@ include file="NavBar.jsp" %>
        
     <!-- Sidebar Navigation -->
     <div class="sidebar">

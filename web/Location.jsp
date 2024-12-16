@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/Location.css">
 </head>
 <body>
+    <%@ include file="NavBar.jsp" %>
     <div class="main">
         <div class="section-name">
             <p class="section-name-text">Our Cinema Halls</p>
