@@ -12,18 +12,24 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
+  margin-top: 60px; /* Adjust based on navbar height */
 }
 
 nav {
-    background-color: #1E1E1E;
-    padding: 5px 5%;
+    background-color: #1E1E1E; /* Navbar background */
+    height: 60px; /* Explicit height */
+    position: fixed; /* Fix the navbar to the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays above all other elements */
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    position: relative;
-  }
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 
   nav .logo {
   display: flex;

@@ -80,7 +80,7 @@
             <span class="cinema-name"><%= AllLocations.get(movieTime.getLocationId()).getName()  %></span>
         </div>
         <div class="showtime">
-            <button><%= movieTime.getTime() %></button>
+            <a href="SeatBooking.jsp?id=<%=movieTime.getId()%>"><button><%= movieTime.getTime() %></button></a>
         </div>
         <hr class="short-line">
     <%
@@ -94,5 +94,7 @@
 </div>
   </div>
 </main>
+<%@ include file="Footer.jsp" %>
+
 </body>
 </html>

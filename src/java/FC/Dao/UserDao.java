@@ -160,4 +160,38 @@ public class UserDao {
 
         return isUpdated;
     }
+    
+    public User getUserByEmailAndPassword(String email, String password) {
+        User user = null;
+        String query = "SELECT * FROM users WHERE email = ? AND password = ?"; // Use hashed password in production
+
+        try (Connection conn = dbconnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, email);
+            ps.setString(2, password); // Adjust for hashed password comparison
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    user = new User(
+                        rs.getInt("id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("email"),
+                        rs.getString("gender"),
+                        rs.getString("nic_number"),
+                        rs.getString("password"),
+                        rs.getString("phone"),
+                        rs.getString("address"),
+                        rs.getString("user_role"),
+                        rs.getString("created_at"),
+                        rs.getString("updated_at")
+                    );
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
 }

@@ -39,5 +39,6 @@
       </div>
   </main>
     <script src="js/ContactUsScripts.js"></script>
+    <%@ include file="Footer.jsp" %>
 </body>
 </html>

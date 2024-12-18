@@ -177,8 +177,6 @@ body {
 
 .pay-btn{
   background-color: #E50914;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   color: rgb(235, 235, 235);
   font-size: 16px;
   padding: 10px 20px;
@@ -186,13 +184,14 @@ body {
   cursor: pointer;
   border-radius: 3px;
   text-align: center;
-  top: 785px;
-  left: 1070px;
-  position: absolute;
 }
 .pay-btn:hover {
   background-color: rgb(255, 255, 255);
   color: #E50914;
+}
+.payment{
+  margin-bottom: -30px;
+
 }
   
 p.text{
@@ -201,4 +200,17 @@ p.text{
 
 p.text span{
     color: rgb(158, 248, 158);
+}
+
+.row-number {
+  color: #fff;
+  font-size: 15px;
+  margin-right: 10px;
+  margin-left: -19px; /* Adjust position to align with seats */
+  margin-top: 6px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; /* Fixed width for consistency */
 }

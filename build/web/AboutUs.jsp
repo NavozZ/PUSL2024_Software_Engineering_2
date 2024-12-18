@@ -19,6 +19,7 @@
         <section class="cinema-preview">
             <img src="images\3d-cinema-theatre-room-with-seating 1.png" alt="Cinema Preview">
           </section>
+         <%@ include file="Footer.jsp" %>
 </body>
 </html>
    

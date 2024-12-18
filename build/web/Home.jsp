@@ -63,50 +63,48 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
 
-   <!-- Carousel Inner -->
-<div class="carousel-inner">
-    <% 
-        if (CarouselMovies != null && !CarouselMovies.isEmpty()) {
-            for (int i = 0; i < Math.min(3, CarouselMovies.size()); i++) { 
-                Movie cmovie = CarouselMovies.get(i);
-    %>
-    <div class="carousel-item <%= (i == 0) ? "active" : "" %>">
-        <img src="<%= cmovie.getCarouselImg() %>" class="d-block w-100" alt="<%= cmovie.getTitle() %>">
-        
-        <!-- Left Side Film Details -->
-        <div class="carousel-caption d-none d-md-block text-start">
-            <h2 class="film-name"><%= cmovie.getTitle() %></h2>
-            <p class="film-details">
-                <span class="film-time"><%= cmovie.getDuration() %> min</span> | 
-                <span class="film-rating">IMDb: <%= cmovie.getRating() %></span>
-            </p>
+    <!-- Carousel Inner -->
+    <div class="carousel-inner">
+        <% 
+            if (CarouselMovies != null && !CarouselMovies.isEmpty()) {
+                for (int i = 0; i < Math.min(3, CarouselMovies.size()); i++) { 
+                    Movie cmovie = CarouselMovies.get(i);
+        %>
+        <div class="carousel-item <%= (i == 0) ? "active" : "" %>">
+            <img src="<%= cmovie.getCarouselImg() %>" class="d-block w-100" alt="<%= cmovie.getTitle() %>">
+            
+            <!-- Left Side Film Details -->
+            <div class="carousel-caption d-none d-md-block text-start">
+                <h2 class="film-name"><%= cmovie.getTitle() %></h2>
+                <p class="film-details">
+                    <span class="film-time"><%= cmovie.getDuration() %> min</span> | 
+                    <span class="film-rating">IMDb: <%= cmovie.getRating() %></span>
+                </p>
+            </div>
         </div>
+        <% 
+                } 
+            } else {
+        %>
+            <p>No movies available at the moment.</p>
+        <% 
+            }
+        %>
     </div>
-    <% 
-            } 
-        } else {
-    %>
-        <p>No movies available at the moment.</p>
-    <% 
-        }
-    %>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
-<!-- Carousel Controls -->
-<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-</button>
-<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-</button>
 
-<!-- Custom Buttons -->
-<div class="custom-buttons position-absolute bottom-0 end-0 m-3">
-    <button class="btn btn-primary me-2">Buy Ticket</button>
-    <button class="btn btn-secondary">Watch Trailer</button>
-</div>
+
 
 
 
@@ -177,6 +175,6 @@
     </div>
 
       
-
+<%@ include file="Footer.jsp" %>
 </body>
 </html>

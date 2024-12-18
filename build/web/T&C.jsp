@@ -188,5 +188,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </section>
             
         </div>
+        <%@ include file="Footer.jsp" %>
     </body>
 </html>

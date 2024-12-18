@@ -70,8 +70,9 @@
 
             <div class="footer">
                 <span>Existing User?</span>
-                <a href="login.jsp">LOGIN</a>
+                <a href="Login.jsp">LOGIN</a>
             </div>
         </div>
+        <%@ include file="Footer.jsp" %>
     </body>
 </html>

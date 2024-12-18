@@ -5,6 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="FC.Model.User"%> <!-- Import your User class -->
+<%
+    // Retrieve the User object from the session
+    User loggedInUser = (User) session.getAttribute("user");
+
+    // Redirect to login page if no user is logged in
+    if (loggedInUser == null) {
+        response.sendRedirect("Login.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +25,7 @@
         <link rel="stylesheet" href="css/UserDashboard.css">
     </head>
     <body>
-        <%@ include file="NavBar.jsp" %>
+       <%@ include file="NavBar.jsp" %>
        
     <!-- Sidebar Navigation -->
     <div class="sidebar">
@@ -33,8 +44,8 @@
         <!-- User Details Section -->
         <div class="details-section">
             <h3>Your Details</h3>
-            <p><strong>Name:</strong> John Doe</p>
-            <p><strong>Email:</strong> john.doe@example.com</p>
+            <p><strong>Name:</strong> <%= loggedInUser.getFirstName() %> <%= loggedInUser.getLastName() %></p>
+            <p><strong>Email:</strong> <%= loggedInUser.getEmail() %></p>
             <p><strong>Mobile:</strong> +1234567890</p>
             <button id="editDetails">Edit Details</button>
         </div>
@@ -87,4 +98,5 @@
 
     <script src="js/UserDashboard.js"></script>
     </body>
+    <%@ include file="Footer.jsp" %>
 </html>

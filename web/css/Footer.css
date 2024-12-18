@@ -1,0 +1,148 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Dec 17, 2024, 10:30:47 AM
+    Author     : navod
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    
+}
+
+
+#footer {
+    background: #433c3c;
+    padding: 4rem 2rem;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+#footer .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+#footer .col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.logo-footer {
+    max-width: 150px;
+    margin-bottom: 1rem;
+}
+
+.footer-about p {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+
+.useful-link h2,
+.other-links h2,
+.address h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.use-links li,
+.other-icons li,
+.address ul li {
+    list-style: none;
+    margin-bottom: 0.5rem;
+}
+
+.use-links li a,
+.other-icons li a,
+.address ul li a {
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.use-links li a:hover,
+.other-icons li a:hover,
+.address ul li a:hover {
+    color: #fffefe;
+}
+
+.other-icons li i,
+.address ul li i {
+    color: #ffffff;
+    margin-right: 0.5rem;
+}
+
+
+#copy-right {
+    background: #82074a;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+#copy-right a {
+    color: #fcd462;
+    text-decoration: none;
+}
+
+#copy-right a:hover {
+    color: #fff;
+}
+
+.subscribe {
+    margin-top: 1.5rem;
+}
+
+.subscribe h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.subscribe form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.subscribe input {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.subscribe button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: #82074a;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.subscribe button:hover {
+    background-color: #fcd462;
+    color: #000;
+}

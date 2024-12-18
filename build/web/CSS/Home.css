@@ -8,6 +8,24 @@ body {
     font-family: "Poppins", sans-serif;
   }
 
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: auto;
+    height: auto;
+    background: rgba(0, 0, 0, 0.5); /* Optional for better visibility */
+    border-radius: 50%; /* Optional for rounded buttons */
+}
+
+.carousel-control-prev {
+    left: 15px;
+}
+
+.carousel-control-next {
+    right: 15px;
+}
 
 /* Now showing styles */
 

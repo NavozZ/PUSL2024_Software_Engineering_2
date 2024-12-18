@@ -1,3 +1,78 @@
+    <%@page import="java.util.ArrayList"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="FC.Model.*" %>
+<%@ page import="FC.Dao.*" %> 
+<%
+    
+    List<Location> AllLocations = null;
+    try {
+        LocationDao locationDao = new LocationDao();
+        AllLocations = locationDao.selectAllLocations();
+    } catch (Exception e) {
+        e.printStackTrace();
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+    }
+    
+    int movieTimeId = 0; // Default value
+    try {
+        String idParam = request.getParameter("id");
+        if (idParam != null) {
+            movieTimeId = Integer.parseInt(idParam);
+        } else {
+            // Handle the case where "id" is not present
+            response.sendRedirect("Home.jsp");
+            return;
+        }
+    } catch (NumberFormatException e) {
+        // Handle the case where "id" is not a valid integer
+        response.sendRedirect("Home.jsp");
+    }
+    
+    MovieTime selectedMovieTime = null;
+    try {
+        MovieTimeDao movieTimeDao = new MovieTimeDao();
+        selectedMovieTime = movieTimeDao.selectMovieTimeById(movieTimeId);
+    } catch (Exception e) {
+        e.printStackTrace();
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+    }
+    
+    Movie selectedMovie = null;
+    try {
+        MovieDao movieDao = new MovieDao();
+        selectedMovie = movieDao.selectMovieById(selectedMovieTime.getMovieId());
+    } catch (Exception e) {
+        e.printStackTrace();
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+    }
+
+    List<String> bookedSeats = new ArrayList<>(); // Initialize the list
+    try {
+        OrderDao orderDao = new OrderDao(); // Assuming OrderDao is implemented
+        List<Order> movieTimeOrders = orderDao.getOrdersByMovieTimeId(movieTimeId); // Fetch orders for the movie time
+
+        for (Order movieTimeOrder : movieTimeOrders) {
+            String seatNumbers = movieTimeOrder.getSeatNumbers().toString(); // Get seat numbers
+
+            seatNumbers = seatNumbers.replace("[", "").replace("]", "");
+
+            // Split by comma to get individual seats
+            String[] seats = seatNumbers.split(",");
+            for (String seat : seats) {
+                bookedSeats.add(seat.trim()); // Trim spaces and add to the list
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+    }
+       
+    for (int i = 0; i < bookedSeats.size(); i++) {
+    String cleanedSeat = bookedSeats.get(i).replace("\"", "").trim(); // Remove quotes and extra spaces
+    bookedSeats.set(i, cleanedSeat); // Update the list with cleaned values
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,28 +82,22 @@
     <link rel="stylesheet" href="css/SBstyle.css" />
     <title>Seat Booking Page</title>
   </head>
+ 
   <body>
       <%@ include file="NavBar.jsp" %>
+  
     <header>
       <h4 id="page-title">SEAT SELECT</h4>
-      <h1 id="film-title">Venom</h1>
+      <h1 id="film-title"><%=selectedMovie.getTitle()%></h1>
       <p id="film-details">
-        <span id="date">Tue, 26 Nov</span>, <span id="location">Location: Kiribathgoda</span>
+          <span id="date"><%=selectedMovieTime.getDate()%></span>, <span id="location">Location: <%=AllLocations.get(selectedMovieTime.getLocationId()).getName() %></span>
       </p>
       <hr>
-      <p id="showtime">SHOWTIME: <span id="time">05:00 PM TO 8.00 PM</span></p>
+      <p id="showtime">SHOWTIME: <span id="time"><%= selectedMovieTime.getTime() %></span></p>
       <hr>
     </header>
 
-    <div class="movie-container">
-      <label>Select a movie:</label>
-      <select id="movie">
-        <option value="2000" data-title="Venom-Last Dance" data-date="Tue, 26 Nov" data-location="Colombo" data-time="05:00 PM">Venom-Last Dance (RS.2000)</option>
-        <option value="1000" data-title="Suriya Arana" data-date="Wed, 27 Nov" data-location="Makola" data-time="07:30 PM">Suriya Arana (RS.1000)</option>
-        <option value="2500" data-title="Nai Kaida Rose Pan" data-date="Thu, 28 Nov" data-location="NSBM" data-time="03:00 PM">Nai Kaida Rose Pan (RS.2500)</option>
-        <option value="2600" data-title="Ali Patiyo Oyai Mamai" data-date="Fri, 29 Nov" data-location="Mathale" data-time="09:00 PM">Ali Patiyo Oyai Mamai (RS.2600)</option>
-      </select>
-    </div>
+    
 
     <ul class="showcase">
       <li>
@@ -61,8 +130,9 @@
         <% 
           for (int seat = 1; seat <= seatsPerRow; seat++) {
             String seatId = row + String.valueOf(seat); // Unique seat ID
+            String seatClass = bookedSeats.contains(seatId) ? "seat sold" : "seat";
         %>
-        <div class="seat" id="<%= seatId %>"></div>
+        <div class="<%= seatClass %>" id="<%= seatId %>"></div>
         <% } %>
       </div>
       <% } %>
@@ -72,8 +142,47 @@
       You have selected <span id="count">0</span> seat(s) for a price of RS.<span id="total">0</span>
     </p>
 
-    <p class="payment">Pay for the Tickets: <button class="pay-btn">Pay</button></p>
+    <form action="Checkout.jsp?id=<%=movieTimeId%>" method="POST" id="seatForm">
+  <input type="hidden" name="selectedSeats" id="selectedSeatsInput" value="" />
+  <button type="submit" class="pay-btn">Pay</button>
+</form>
 
-    <script src="js/SBscript.js"></script>
+
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const seats = document.querySelectorAll(".seat:not(.sold)"); // Select all available seats
+  const count = document.getElementById("count");
+  const total = document.getElementById("total");
+  const pricePerSeat = 500; // Example seat price
+  let selectedSeats = [];
+
+  // Add click event to available seats
+  seats.forEach((seat) => {
+    seat.addEventListener("click", () => {
+      const seatId = seat.id;
+
+      // Toggle "selected" class
+      if (seat.classList.contains("selected")) {
+        seat.classList.remove("selected");
+        selectedSeats = selectedSeats.filter((id) => id !== seatId);
+      } else {
+        seat.classList.add("selected");
+        selectedSeats.push(seatId);
+      }
+
+      // Update count and total
+      count.textContent = selectedSeats.length;
+      total.textContent = selectedSeats.length * pricePerSeat;
+
+      // Update the hidden input with selected seats
+      document.getElementById("selectedSeatsInput").value = selectedSeats.join(",");
+    });
+  });
+});
+
+</script>
+
+
   </body>
 </html>
