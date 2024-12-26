@@ -146,6 +146,8 @@
   <input type="hidden" name="selectedSeats" id="selectedSeatsInput" value="" />
   <button type="submit" class="pay-btn">Pay</button>
 </form>
+  
+   <%@ include file="Footer.jsp" %>
 
 
 

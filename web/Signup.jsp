@@ -73,6 +73,6 @@
                 <a href="Login.jsp">LOGIN</a>
             </div>
         </div>
-        <%@ include file="Footer.jsp" %>
+       <%@ include file="Footer.jsp" %>
     </body>
 </html>

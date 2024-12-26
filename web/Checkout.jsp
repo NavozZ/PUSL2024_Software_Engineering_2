@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="FC.Model.User"%>
+<%@page import="FC.servlet.EmailSenderServlet"%>
 
 <%
     // Retrieve the selectedSeats parameter from the form
@@ -38,6 +39,15 @@
         // Redirect to login if no user is in session
         response.sendRedirect("Login.jsp");
         return;
+        
+    }
+    try{
+    EmailSenderServlet e  = new EmailSenderServlet();
+    String o = e.sendEmail("navodyatheshan4@gmail.com", "test", "body");
+    out.print(o);
+    }catch(Exception e)
+    {
+        out.print(e);
     }
 %>
 

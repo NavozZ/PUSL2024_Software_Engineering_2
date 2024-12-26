@@ -8,6 +8,8 @@
     </head>
     <body>
         <%@ include file="NavBar.jsp" %>
+
+        <!-- Main Content -->
         <div class="container">
             <!-- Login Title -->
             <h1 class="login-title">Enter your login details</h1>
@@ -47,6 +49,8 @@
                 </span>
             </div>
         </div>
-                
+
+        <!-- Footer -->
+         <%@ include file="Footer.jsp" %>
     </body>
 </html>

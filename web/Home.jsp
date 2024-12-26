@@ -52,9 +52,6 @@
 </head>
 <body>
     <%@ include file="NavBar.jsp" %>
-
-      <!-- carousel -->
-
     <div id="carouselExampleIndicators" class="carousel slide position-relative">
     <!-- Carousel Indicators -->
     <div class="carousel-indicators">
@@ -174,7 +171,6 @@
         </div>
     </div>
 
-      
-<%@ include file="Footer.jsp" %>
+ <%@ include file="Footer.jsp" %>
 </body>
 </html>

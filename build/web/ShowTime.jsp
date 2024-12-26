@@ -94,7 +94,7 @@
 </div>
   </div>
 </main>
-<%@ include file="Footer.jsp" %>
 
+ <%@ include file="Footer.jsp" %>
 </body>
 </html>

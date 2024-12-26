@@ -98,5 +98,5 @@
 
     <script src="js/UserDashboard.js"></script>
     </body>
-    <%@ include file="Footer.jsp" %>
+    
 </html>

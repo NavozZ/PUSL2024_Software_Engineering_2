@@ -14,7 +14,8 @@
   <main class="contact-container">
     <h1>Contact Us</h1>
     <p>We would love to hear from you. Please fill out the form below, and we’ll get back to you as soon as possible.</p>
-    <form id="contact-form">
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="6752f358-b8c9-4f32-8b0d-b4ca7086c2c0">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" placeholder="Enter your name" required>
         
@@ -39,6 +40,6 @@
       </div>
   </main>
     <script src="js/ContactUsScripts.js"></script>
-    <%@ include file="Footer.jsp" %>
+     <%@ include file="Footer.jsp" %>
 </body>
 </html>

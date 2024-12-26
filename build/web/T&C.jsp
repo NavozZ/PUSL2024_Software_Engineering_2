@@ -5,189 +5,138 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-        <title>Terms</title>
+        
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="css/Terms.css">
+        <title>Terms and Conditions - Future Cinema</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1E1E1E;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #1E1E1E;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #E50914;
+        }
+
+        h2 {
+            color: #ffffff;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 
     </head>
     <body>
         <%@ include file="NavBar.jsp" %>
   
-        <div class="conditions-section">
-        
-           <div class="pharagraphs-1 text">
-            
-            <h4>Terms and Conditions</h4>
-            <p>Effective Date: [Insert Date]</p>
-            <p>Welcome to Future Cinema! By accessing or using our website, you agree </P>
-            <P>to comply with the following terms and conditions. Please read them carefully.</p> 
-            
-           </div>
-            <div class="pharagraph-2 text">
-                <h4>
-                    1. Acceptance of Terms
-                </h4>
-                <p>By using Future Cinema’s website and services, you confirm that you have read,</P>
-                <P>understood, and agreed to these Terms and Conditions. If you do not agree, please refrain from using our services.</p>
-           </div>
-            
-            <div class="pharagraph-3 text">
-                <h4>2. Use of Services</h4>
-                <p>You must be at least [Insert Minimum Age, e.g., 13 or 18] years old to use this website.</p>
-                <p>You agree to use this website for lawful purposes only and comply with all applicable laws and regulations.</p>
-                <p>You shall not use Future Cinema to:</p>
+        <div class="container">
+        <h1>Terms and Conditions</h1>
+        <p><strong>Effective Date:</strong> [Insert Date]</p>
+
+        <p>Welcome to Future Cinema! By accessing or using our website, you agree to comply with the following terms and conditions. Please read them carefully.</p>
+
+        <ol>
+            <li>
+                <strong>Acceptance of Terms</strong>
+                <p>By using Future Cinema?s website and services, you confirm that you have read, understood, and agreed to these Terms and Conditions. If you do not agree, please refrain from using our services.</p>
+            </li>
+            <li>
+                <strong>Use of Services</strong>
+                <p>You must be at least [Insert Minimum Age, e.g., 13 or 18] years old to use this website. You agree to use this website for lawful purposes only and comply with all applicable laws and regulations. You shall not use Future Cinema to:</p>
                 <ul>
                     <li>Engage in fraudulent or misleading activities.</li>
                     <li>Post harmful, obscene, or otherwise inappropriate content.</li>
                 </ul>
-                
-                
-                
-            </div >
-            
-            <div class="pharagraph-4 text">
-                <h4>3. Account Creation and Security</h4>
+            </li>
+            <li>
+                <strong>Account Creation and Security</strong>
+                <p>To access certain features, you may be required to create an account. You are responsible for maintaining the confidentiality of your account credentials. Future Cinema is not liable for any unauthorized use of your account.</p>
+            </li>
+            <li>
+                <strong>Ticket Purchases and Refunds</strong>
+                <p>All ticket purchases are subject to availability and confirmation. Refunds or exchanges may be offered under specific circumstances, as outlined in our refund policy. You agree to provide accurate payment information when making purchases.</p>
+            </li>
+            <li>
+                <strong>Intellectual Property Rights</strong>
+                <p>All content on this website, including text, graphics, logos, and multimedia, is the property of Future Cinema or its licensors. You may not reproduce, distribute, or exploit any content without prior written permission.</p>
+            </li>
+            <li>
+                <strong>Third-Party Links</strong>
+                <p>Future Cinema may contain links to third-party websites. We are not responsible for the content, accuracy, or practices of these external sites.</p>
+            </li>
+            <li>
+                <strong>Limitation of Liability</strong>
+                <p>Future Cinema shall not be held liable for:</p>
                 <ul>
-                    <li>To access certain features, you may be required to create an account.</li>
-                    <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
-                    <li>Future Cinema is not liable for any unauthorized use of your account.</li>
+                    <li>Any technical issues that disrupt access to the site.</li>
+                    <li>Losses or damages resulting from the use of our services.</li>
                 </ul>
-                
-            </div>
-            
-            <div class="pharagraph-5 text">
-                <h4>4. Ticket Purchases and Refunds</h4>
-                <ul>
-                    <li>All ticket purchases are subject to availability and confirmation.</li>
-                    <li>Refunds or exchanges may be offered under specific circumstances, as outlined in our refund policy.</li>
-                    <li>You agree to provide accurate payment information when making purchases.</li>
-                </ul>
-                
-            </div>
-            
-            <div class="pharagraph-6 text">
-                <h4>5. Intellectual Property Rights</h4>
-                <ul>
-                    <li>All content on this website, including text, graphics, logos, and multimedia, is the<br>
-                        property of Future Cinema or its licensors.</li>
-                    <li>You may not reproduce, distribute, or exploit any content without prior written permission.</li>
+                <p>Use of this website is at your own risk.</p>
+            </li>
+            <li>
+                <strong>Privacy Policy</strong>
+                <p>Your use of the website is also governed by our Privacy Policy, which explains how we collect, use, and protect your data.</p>
+            </li>
+            <li>
+                <strong>Changes to Terms and Conditions</strong>
+                <p>Future Cinema reserves the right to update these Terms and Conditions at any time. Continued use of the site signifies your acceptance of the revised terms.</p>
+            </li>
+            <li>
+                <strong>Governing Law</strong>
+                <p>These Terms and Conditions are governed by the laws of [Insert Jurisdiction], and any disputes will be resolved in its courts.</p>
+            </li>
+        </ol>
 
-                </ul>
-            </div>    
-            
-            <div class="pharagraph-7 text">
-                <h4>6. Third-Party Links</h4>
-                <ul>
-                    <li>Future Cinema may contain links to third-party websites</li>
-                    <li>We are not responsible for the content, accuracy, or practices of these external sites.</li>
-                </ul>
-            </div>
-            
-            <div class="pharagraph-8 text">
-                <h4>7. Limitation of Liability</h4>
-                <ul>
-                    <li>Future Cinema shall not be held liable for:</li>
-                      <ul>
-                        <li>Any technical issues that disrupt access to the site.</li>
-                         <li>Losses or damages resulting from the use of our services.</li>
-                      </ul>
-                    <li>Use of this website is at your own risk.</li>
-                </ul>
-            </div>
-            
-            
-            <div class="pharagraph-9 text">
-                <h4>9. Privacy Policy</h4>
-                <p>Your use of the website is also governed by our Privacy Policy, which explains how</p>
-                <p>we collect, use, and protect your data.</p>
-            </div>
-            
-            
-            <div class="pharahraph-10 text">
-                <h4>10. Changes to Terms and Conditions</h4>
-                <p>Future Cinema reserves the right to update these Terms and Conditions at any time.</p>
-                <p>Continued use of the site signifies your acceptance of the revised terms.</p>
-            </div>
-            
-            <div class="pharagraph-11 text">
-                <h4>11.Governing Law</h4>
-                <p>These Terms and Conditions are governed by the laws of [Insert Jurisdiction], and any</p>
-                <p>disputes will be resolved in its courts.</p>
-            </div>
-            
-        </div>
-        
-        <div class="footer-section">
-            <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <!-- Logo and About Section -->
-                <div class="col">
-                    <a href="index.html">
-                        <img src="/src/logo.png" alt="Logo" class="logo-footer">
-                    </a>
-                    <div class="footer-about">
-                        <p>Future Cinema is your ultimate destination for exploring the latest blockbusters, timeless classics, and hidden gems. 
-                            Experience the magic of cinema with personalized recommendations, detailed reviews, and exclusive trailers. </p>
-                    </div>
-                </div>
-                <!-- Useful Links Section -->
-                <div class="col">
-                    <div class="useful-link">
-                        <h2>Useful Links</h2>
-                        <div class="use-links">
-                            <ul>
-                                <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
-                                <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
-                                <li><a href="gallery.html"><i class="fas fa-angle-right"></i> Movies</a></li>
-                                <li><a href="contact.html"><i class="fas fa-angle-right"></i> Locations</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    <div class="other-links">
-                        <span><br></span>
-                        <div class="other-icons">
-                            <ul>
-                                <li><a href="#"><i class="fas fa-angle-right"></i> Contact Us</a></li>
-                                <li><a href="#"><i class="fas fa-angle-right"></i> Disclaimer</a></li>
-                                <li><a href="#"><i class="fas fa-angle-right"></i>Terms And Conditions</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    <div class="address">
-                        <h2>Address</h2>
-                        <ul>
-                            <li><i class="fas fa-map-marker-alt"></i> xxxx xxxxx, xxxxx xxxx, xxx</li>
-                            <li><a href="#"><i class="fas fa-phone"></i> +94 909045001</a></li>
-                            <li><a href="#"><i class="fas fa-envelope"></i> futurecinema@hotmail.com</a></li>
-                        </ul>
-                    </div>
-                    <div class="subscribe">
-                        <h2>Subscribe to Our Newsletter</h2>
-                        <form action="#" method="POST">
-                            <input type="email" placeholder="Enter your email" required>
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <section id="copy-right">
-        <div class="copy-right-sec">
-            <p><i class="fas fa-copyright"></i> 2024 Powered By <a href="#">Future Cinema</a></p>
-        </div>
-    </section>
-            
-        </div>
+        <footer>
+            &copy; 2024 Future Cinema. All rights reserved.
+        </footer>
+    </div>
         <%@ include file="Footer.jsp" %>
     </body>
 </html>

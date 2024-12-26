@@ -1,148 +1,186 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : Dec 17, 2024, 10:30:47 AM
-    Author     : navod
-*/
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    
-}
-
-
+/* General Footer Styles */
 #footer {
-    background: #433c3c;
-    padding: 4rem 2rem;
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+    width: 100%;
+    position: relative;
 }
 
-#footer .container {
+.footer-container {
     max-width: 1200px;
-    margin: auto;
-}
-
-#footer .row {
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2rem;
 }
 
-#footer .col {
-    flex: 1;
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-col {
+    flex: 1 1 calc(25% - 20px);
     min-width: 200px;
+    text-align: left;
 }
 
+/* Logo and About Section */
 .logo-footer {
-    max-width: 150px;
-    margin-bottom: 1rem;
+    width: 150px;
+    margin-bottom: 20px;
 }
 
 .footer-about p {
-    font-size: 0.9rem;
-    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
 }
 
-
+/* Useful Links Section */
 .useful-link h2,
-.other-links h2,
-.address h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #ffffff;
-}
-
-.use-links li,
-.other-icons li,
-.address ul li {
-    list-style: none;
-    margin-bottom: 0.5rem;
-}
-
-.use-links li a,
-.other-icons li a,
-.address ul li a {
-    color: #ffffff;
-    font-size: 0.9rem;
-    text-decoration: none;
-}
-
-.use-links li a:hover,
-.other-icons li a:hover,
-.address ul li a:hover {
-    color: #fffefe;
-}
-
-.other-icons li i,
-.address ul li i {
-    color: #ffffff;
-    margin-right: 0.5rem;
-}
-
-
-#copy-right {
-    background: #82074a;
-    color: #fff;
-    text-align: center;
-    padding: 1.5rem 0;
-}
-
-#copy-right a {
-    color: #fcd462;
-    text-decoration: none;
-}
-
-#copy-right a:hover {
-    color: #fff;
-}
-
-.subscribe {
-    margin-top: 1.5rem;
-}
-
+.address h2,
 .subscribe h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-.subscribe form {
-    display: flex;
-    gap: 0.5rem;
+.use-links ul,
+.other-icons ul,
+.address ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
+.use-links ul li,
+.other-icons ul li {
+    margin: 10px 0;
+}
+
+.use-links ul li a,
+.other-icons ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.use-links ul li a:hover,
+.other-icons ul li a:hover {
+    color: #f4b400;
+}
+
+.use-links ul li i,
+.other-icons ul li i {
+    margin-right: 8px;
+}
+
+/* Address Section */
+.address ul li {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.address ul li i {
+    margin-right: 10px;
+    color: #E50914;
+}
+
+.address ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.address ul li a:hover {
+    color: #f4b400;
+}
+
+/* Newsletter Subscription Section */
 .subscribe input {
-    flex: 1;
-    padding: 0.5rem;
-    font-size: 0.9rem;
+    width: calc(70% - 20px);
+    padding: 10px;
+    margin-top: 10px;
     border: none;
     border-radius: 4px;
+    outline: none;
+    font-size: 14px;
 }
 
 .subscribe button {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    background-color: #82074a;
-    color: #ffffff;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #E50914;
+    color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .subscribe button:hover {
-    background-color: #fcd462;
-    color: #000;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Copyright Section */
+#copy-right {
+    background-color: #222;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+.copy-right-sec p {
+    margin: 0;
+    color: #fff;
+}
+
+.copy-right-sec p a {
+    color: #E50914;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.copy-right-sec p a:hover {
+    color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-col {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .logo-footer {
+        margin: 0 auto 20px;
+    }
+
+    .subscribe input {
+        width: calc(100% - 20px);
+    }
+
+    .subscribe button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-about p,
+    .use-links ul li a,
+    .address ul li,
+    .copy-right-sec p {
+        font-size: 12px;
+    }
 }

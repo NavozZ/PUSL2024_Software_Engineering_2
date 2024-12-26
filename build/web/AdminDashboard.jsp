@@ -263,6 +263,6 @@
             </main>
         </div>
         <script src="js/AdminDashboard.js"></script>
-        <%@ include file="Footer.jsp" %>
+        
     </body>
 </html>

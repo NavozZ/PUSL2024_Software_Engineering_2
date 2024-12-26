@@ -3,42 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/Footer.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/Home.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/css/Footer.css</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/WEB-INF/web.xml</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/Dao/UserDao.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/AdminDashboard.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/servlet/OrderServlet.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/ShowTime.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/connection/dbconnection.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/SeatBooking.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/servlet/LogoutServlet.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/servlet/LoginServlet.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/css/navbarstyle.css</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/Model/Order.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/css/Signup.css</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/Dao/MovieDao.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/MovieDetails.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/Dao/LocationDao.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/Login.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/Model/User.java</file>
             <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/ContactUs.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/Dao/OrderDao.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/nbproject/build-impl.xml</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/servlet/SignUpServlet.java</file>
+            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/Home.jsp</file>
+            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/Model/Cast.java</file>
             <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/Model/Location.java</file>
             <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/Model/Movie.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/Signup.jsp</file>
             <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/NavBar.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/Movies.jsp</file>
+            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/servlet/OrderServlet.java</file>
+            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/SeatBooking.jsp</file>
             <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/Checkout.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/UserDashboard.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/T&amp;C.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/servlet/LocationServlet.java</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/AboutUs.jsp</file>
+            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/css/Home.css</file>
+            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/css/SBstyle.css</file>
+            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/css/Movies.css</file>
+            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/css/navbarstyle.css</file>
             <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/web/Location.jsp</file>
-            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/Dao/MovieTimeDao.java</file>
+            <file>file:/E:/University%20Projects/PUSL2024_Software_Engineering_2/src/java/FC/servlet/EmailSenderServlet.java</file>
         </group>
     </open-files>
 </project-private>

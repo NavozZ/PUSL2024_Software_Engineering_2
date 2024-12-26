@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/navbarstyle.css">
     </head>
     <body>
-        <nav>
+        <nav class="navbar">
             <!-- Logo Section -->
             <div class="logo">
                 <img src="src/logo.png" alt="logo" />

@@ -1,3 +1,4 @@
+import FC.servlet.EmailSenderServlet;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,6 +15,18 @@ public class OrderServlet extends HttpServlet {
             int movieTimeId = Integer.parseInt(request.getParameter("movieTimeId"));
             int customerId = Integer.parseInt(request.getParameter("customerId"));
             String seatNumbers = request.getParameter("seatNumbers");
+            
+            String q = "SELECT email FROM users WHERE id=?";
+            String email = null;
+            PreparedStatement p = con.prepareStatement(q);
+            p.setInt(1, customerId);
+            ResultSet re = p.executeQuery();
+            while(re.next())
+            {
+                email = re.getString("email");
+            }
+            
+            
 
             // Convert seat numbers into valid JSON format
             JSONArray seatNumbersJson = new JSONArray(seatNumbers.split(","));
@@ -32,7 +45,14 @@ public class OrderServlet extends HttpServlet {
                 out.println("<p>Movie Time ID: " + movieTimeId + "</p>");
                 out.println("<p>Customer ID: " + customerId + "</p>");
                 out.println("<p>Seats: " + seatNumbersJson.toString() + "</p>");
+                String m = "Thank you for your payment. Your seats have been reserved\nMovie Time ID: " + movieTimeId+"\nCustomer ID: " + customerId+"\nSeats: "+ seatNumbersJson.toString();
+                EmailSenderServlet e = new EmailSenderServlet();
+                String o = e.sendEmail("navodyatheshan4@gmail.com", "Order Confirmed Successfully!", m);
+                out.print(o);
                 out.println("<a href='Home.jsp'>Return to Home</a>");
+                
+                
+                
             } else {
                 out.println("<h2>Failed to confirm your order!</h2>");
             }
